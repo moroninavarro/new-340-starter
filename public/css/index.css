@@ -1,0 +1,77 @@
+body{
+  font-family: "Quattrocento", serif;
+  font-weight: 400;
+  font-style: normal;
+
+}
+
+header{
+    display: flex;
+    align-content: flex-end;
+    background-color: beige;
+    color: black;
+    
+}
+a{
+   text-decoration: none;
+}
+.siteName{
+    font-size: 40px;
+    color: white;
+    padding: 10px;
+}
+
+#tools{
+    font-size: 18px;
+    color: white;
+    padding: 10px;
+    
+}
+
+/* Header above*/
+
+
+
+figure img{
+    width: 30%;
+    display: block;
+    margin: 50 auto;
+}
+
+.promotion{
+    position:absolute;
+    background-color: rgba(255, 255, 255, 0.733);
+    color: rgb(0, 174, 255);
+    padding: 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    top: 180px;
+    left: 20px;
+}
+.promotion p{
+    line-height: 0.4;
+    font-size: 25px;
+}
+.promotion img{
+    width: 80%;
+}
+
+.navigation{
+display: flex;
+flex-flow: row wrap;
+align-content: flex-end;
+
+list-style: none;
+margin: 0;
+background: rgb(42, 44, 44);
+}
+.navigation a{
+    text-decoration: none;
+    display: block;
+    padding: 1em;
+    color: white;
+}
+
+.navigation a:hover{
+    background: #5d5f61;
+}
