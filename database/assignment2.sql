@@ -21,14 +21,14 @@ WHERE classification_name = 'Sport';
 UPDATE inventory
 SET inv_image = REGEXP_REPLACE(
 	inv_image,
-	'(^|/)(image)(/)',
-	'\1image/vehicles',
+	'(^|/)(images)(/)',
+	'\1image/vehicles\3',
 	'g'
 ),
 	inv_thumbnail = REGEXP_REPLACE(
 	inv_thumbnail,
-	'(^|/)(image)(/)',
-	'\1image/vehicles',
+	'(^|/)(images)(/)',
+	'\1image/vehicles\3',
 	'g'
 )
-WHERE inv_image ~ '/image/' OR inv_thumbnail ~ '/image/';
+WHERE inv_image ~ '/images/' OR inv_thumbnail ~ '/images/';
