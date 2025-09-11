@@ -22,13 +22,13 @@ UPDATE inventory
 SET inv_image = REGEXP_REPLACE(
 	inv_image,
 	'(^|/)(images)(/)',
-	'\1image/vehicles\3',
+	'\1images/vehicles\3',
 	'g'
 ),
 	inv_thumbnail = REGEXP_REPLACE(
 	inv_thumbnail,
 	'(^|/)(images)(/)',
-	'\1image/vehicles\3',
+	'\1images/vehicles\3',
 	'g'
 )
 WHERE inv_image ~ '/images/' OR inv_thumbnail ~ '/images/';
