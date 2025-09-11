@@ -240,3 +240,28 @@ VALUES   (
     'White',
     5
   );
+
+
+
+
+UPDATE inventory
+SET inv_description = REPLACE(inv_description, 'small interiors', 'huge interior')
+WHERE inv_id = 10;
+
+
+
+
+UPDATE inventory
+SET inv_image = REGEXP_REPLACE(
+	inv_image,
+	'(^|/)image',
+	'\1image/vehicles',
+	'g'
+),
+	inv_thumbnail = REGEXP_REPLACE(
+	inv_thumbnail,
+	'(^|/)image',
+	'\1image/vehicles',
+	'g'
+)
+WHERE inv_image ~ '/image' OR inv_thumbnail ~ 'image';
