@@ -1,165 +1,543 @@
-body{
-  font-family: "Quattrocento", serif;
-  font-weight: 400;
-  font-style: normal;
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Literata:opsz@7..72&display=swap");
+
+ 
+
+/* Colors */
+
+:root {
+
+   --primary-text: #242333;
+
+   --primary-background: #fff;
+
+   --body-font: Inter;
+
+   --heading-font: Literata;
+
+   --main-accent: #01b0d3;
 
 }
 
-header{
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(255, 255, 255);
-    color: black;
-    
+ 
 
-    
+/* header.ejs */
+
+#top-header {
+
+   display: flex;
+
+   justify-content: space-between;
+
 }
-a{
+
+ 
+
+.siteName {
+
+   font-size: 2rem;
+
+   font-weight: 800;
+
+}
+
+ 
+
+#tools {
+
+   font-size: 3.5vw;
+
+   font-variant: small-caps;
+
+   display: flex;
+
+   width: 20%;
+
+   justify-content: space-evenly;
+
+}
+
+ 
+
+header > img {
+
+   max-width: 40%;
+
+}
+
+ 
+
+header a {
+
    text-decoration: none;
-}
-.siteName{
-    font-size: 40px;
-   
-}
-.siteName a{
-    color: rgb(0, 0, 0);
-}
-.tools{
-    display: flex;
-    justify-content: flex-end;
-    font-size: 18px;
-    
-    
-}
-.tools a{
-    display: flex;
-    justify-content: flex-end;
-    color: rgb(0, 0, 0);
-}
-/* Header above*/
 
-.myCar img{
-    
-    height: 200px;
-    margin-left:40px;
-}
-.promotion{
-    position:absolute;
-    background-color: rgba(255, 255, 255, 0.699);
-    color: rgb(0, 174, 255);
-    border: 2px solid rgba(255, 255, 255, 0.651);
-    border-radius: 10px;
-    top: 180px;
-    left: 10px;
-    
-}
-.promotion p{
-    line-height: 0.4;
-    font-size: 18px;
-}
-.promotion img{
-    width: 65%;
+   color: var(--primary-text);
+
+   display: inline-block;
+
+   padding: 2vh 0;
+
 }
 
+ 
 
-/* Auto above*/
-section{
-    margin-top: 80px;
-}
-section ul{
-    font-size: 17px;
-    line-height: 2;
-}
+@media only screen and (min-width: 768px) {
 
+   /* header.ejs */
 
+   #tools {
 
+       font-size: inherit;
 
+   }
 
-
-
-
-
-/*Delorean Upgrades*/
-
-.navUpgrades{
-    margin-top: 50px;
-    
-}
-.upgrades{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    max-width: 600px;
-    justify-content: center;
-    text-align: center;
-    text-decoration:underline;
 }
 
+/* navigation.ejs */
 
+nav {
 
+   background-color: var(--primary-text);
 
+   color: var(--primary-background);
 
-.upgrades figure img{
-    
-    background-color: rgb(0, 174, 255);
-    padding: 30px;
-    
-   
-    
 }
 
+ 
 
+nav ul {
 
-/*This is for the Navigation*/
-.navigation{
-display: flex;
-flex-flow: row wrap;
-align-content:flex-end;
-list-style: none;
-margin: 0;
-background: rgb(42, 44, 44);
-}
-.navigation a{
-    text-decoration: none;
-    display: block;
-    padding: 1em;
-    color: white;
+   display: flex;
+
+   padding: 0 1vw;
+
+   justify-content: space-around;
+
 }
 
-.navigation a:hover{
-    background: #5d5f61;
+ 
+
+nav li {
+
+   list-style: none;
+
+   padding-top: 1em;
+
+   padding-bottom: 1em;
+
 }
 
-/*Media Queries*/
+ 
 
-@media (min-width: 901px){
+nav a {
 
+   color: var(--primary-background);
 
-.navigation{
-    display: flex;
-    justify-content:space-around;
-}
-.myCar{
-    margin-left: 700px;
-}
+   text-decoration: none;
 
-.promotion{
-    border-radius: 10px;
-    top: 180px;
-    left: 10px;
-    margin-left: 700px;
+   font-size: 0.85rem;
+
+   padding-top: 1em;
+
+   padding-bottom: 1em;
+
 }
 
-section{
-    margin-top: -30px;
+ 
+
+@media only screen and (min-width: 768px) {
+
+   /* navigation.ejs */
+
+   nav {
+
+       margin-top: 0.75rem;
+
+   }
+
+ 
+
+   nav ul {
+
+       justify-content: space-evenly;
+
+       padding: 0.5rem 0;
+
+       margin: 0;
+
+   }
+
+ 
+
+   nav li {
+
+       margin: 0;
+
+       padding: 0;
+
+       text-align: center;
+
+   }
+
+ 
+
+   nav a {
+
+       display: inline-block;
+
+       width: 4.5em;
+
+       padding: 0.25rem 0;
+
+       font-size: 1rem;
+
+   }
+
+ 
+
+   nav a:hover {
+
+       color: var(--primary-text);
+
+       background-color: var(--primary-background);
+
+   }
+
 }
 
+footer {
 
-.together{
-    display: flex;
-    flex-direction:row-reverse;
-    justify-items: center;
-    justify-content: center;
-    align-items: center;
+   margin-top: 2rem;
+
 }
+
+ 
+
+footer p {
+
+   margin: 0;
+
+   padding: 0;
+
+   font-size: 0.9rem;
+
+}
+
+ 
+
+hr {
+
+   border: 2px solid var(--primary-text);
+
+   margin: 0;
+
+}
+
+/* index.ejs */
+
+#hero {
+
+   background-image: url("/images/vehicles/delorean.jpg");
+
+   background-repeat: no-repeat;
+
+   background-size: contain;
+
+   background-position: center;
+
+   margin-left: auto;
+
+   margin-right: auto;
+
+   display: flex;
+
+}
+
+ 
+
+#hero h2 {
+
+   margin-left: 0;
+
+}
+
+ 
+
+#hero a:hover {
+
+   opacity: 0.5;
+
+}
+
+ 
+
+#hero li {
+
+   list-style: none;
+
+   color: var(--main-accent);
+
+}
+
+ 
+
+#hero li h2 {
+
+   margin-top: 0;
+
+   margin-bottom: 0;
+
+   color: var(--main-accent);
+
+}
+
+ 
+
+#hero ul {
+
+   padding-left: 0;
+
+   margin-top: 0;
+
+   max-width: 200px;
+
+   margin-left: 0.5em;
+
+   margin-bottom: 2rem;
+
+   background-color: rgba(255, 255, 255, 0.7);
+
+}
+
+ 
+
+#hero li {
+
+   font-size: 0.85em;
+
+}
+
+ 
+
+#actionbtn {
+
+   display: inline-block;
+
+   max-width: 25vw;
+
+   max-height: 10vh;
+
+   padding: 0.5rem;
+
+   background-color: var(--main-accent);
+
+   color: var(--primary-text);
+
+   font-weight: 800;
+
+   border-radius: 0.25rem;
+
+}
+
+ 
+
+#actionbtn:hover {
+
+   opacity: 0.5;
+
+}
+
+ 
+
+/* For Delorian list */
+
+section ul {
+
+   padding: 0 0 0 1rem;
+
+}
+
+ 
+
+#review li {
+
+   font-size: 0.9em;
+
+   margin-bottom: 1em;
+
+}
+
+ 
+
+.flex {
+
+   display: flex;
+
+   margin-bottom: 2em;
+
+   justify-content: center;
+
+   width: 100%;
+
+   padding-left: 0.25em;
+
+}
+
+ 
+
+.flex a {
+
+   width: 100%;
+
+}
+
+ 
+
+.add-col {
+
+   background-color: var(--main-accent);
+
+   height: 5.5em;
+
+   width: 95%;
+
+   border: var(--primary-text) solid 1px;
+
+}
+
+ 
+
+a figure {
+
+   margin: 0;
+
+}
+
+ 
+
+figure img {
+
+   display: block;
+
+   margin: auto;
+
+   padding-top: 0.5em;
+
+}
+
+ 
+
+figure figcaption {
+
+   text-align: center;
+
+}
+
+ 
+
+section {
+
+   margin-bottom: 2em;
+
+   margin-top: 1em;
+
+}
+
+ 
+
+@media only screen and (min-width: 768px) {
+
+   /* index.ejs */
+
+   #hero ul {
+
+       font-size: 1.6em;
+
+       margin-left: 2em;
+
+       margin-top: 1em;
+
+   }
+
+ 
+
+   #actionbtn {
+
+       display: block;
+
+       width: 90%;
+
+       margin-top: 1.5em;
+
+       padding: 1rem;
+
+       background-color: var(--main-accent);
+
+       color: var(--primary-text);
+
+       font-weight: 800;
+
+       font-size: large;
+
+   }
+
+ 
+
+   .flex-content {
+
+       display: flex;
+
+       justify-content: space-between;
+
+       gap: 1vw;
+
+   }
+
+ 
+
+   #add-ons,
+
+   #review {
+
+       margin-top: 0;
+
+       flex: 1 0 45%;
+
+   }
+
+ 
+
+   #review h2,
+
+   #add-ons h2 {
+
+       font-size: 1.4em;
+
+       margin-bottom: 2em;
+
+   }
+
+ 
+
+   #add-ons {
+
+       order: -1;
+
+   }
+
+ 
+
+   #review li {
+
+       font-size: 1.1em;
+
+   }
+
+ 
+
+   #add-ons {
+
+       width: 45%;
+
+   }
+
 }
