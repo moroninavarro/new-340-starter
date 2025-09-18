@@ -58,6 +58,19 @@ Util.buildClassificationGrid = async function(data){
 }
 
 
+Util.buildInventoryGrid = async function(data){
+  let html = ''
+
+  html += '<h1>' + data.inv_year + data.inv_make + data.inv_model + '</h1>'
+  html += '<img src="' + data.inv_thumbnail + '" alt="Cover of' + data.inv_make + data.inv_model + '">'
+  html += '<span>$' + new Intl.NumberFormat('en-US').format(data.inv_price) + '</span>'
+  html += '<p><strong>Description:</strong>' + data.inv_description + '</p>'
+  html += '<p><strong>Color:</strong>' + data.inv_color + '</p>'
+  html += '<p><strong>Miles:</strong>' + data.inv_miles + '</p>'
+
+  return html;
+}
+
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 
