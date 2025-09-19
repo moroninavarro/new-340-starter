@@ -27,7 +27,7 @@ invCont.buildByinventoryId = async function (req, res, next) {
   const grid = await utilities.buildInventoryGrid(data)
   let nav = await utilities.getNav()
   res.render("./inventory/inventoryview", {
-    title: data.inv_make + "vehicleees" + data.inv_model,
+    title: data.inv_make + " " + data.inv_model,
     nav,
     grid,
   })
