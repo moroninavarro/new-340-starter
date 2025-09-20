@@ -33,6 +33,9 @@ app.use("/inv", inventoryRoute)
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
 })
+
+//link broken in footer
+
 /* ***********************
 * Express Error Handler
 * Place after all other middleware
@@ -47,7 +50,6 @@ app.use(async (err, req, res, next) => {
     nav
   })
 })
-
 
 
 /* ***********************
