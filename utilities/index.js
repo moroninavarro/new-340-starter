@@ -63,7 +63,7 @@ Util.buildInventoryGrid = async function(data){
   html = '<div id="the-details">'
   html += '<img src="' + data.inv_image + '" alt="Cover of' + data.inv_make + data.inv_model + '">'
   html += '<div class="otherColumn">'
-  html += '<h2><strong>' + data.inv_make + " " + data.inv_model + " Details" + '</h2>'
+  html += '<h2><strong>' + data.inv_make + " " + data.inv_model + " Details" + '</strong></h2>'
   html += '<p><strong>Price: </strong><span>$' + new Intl.NumberFormat('en-US').format(data.inv_price) + '</span></p>'
   html += '<p><strong>Description: </strong>' + data.inv_description + '</p>'
   html += '<p><strong>Color: </strong>' + data.inv_color + '</p>'
