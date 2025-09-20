@@ -60,14 +60,16 @@ Util.buildClassificationGrid = async function(data){
 
 Util.buildInventoryGrid = async function(data){
   let html = ''
-
-  html += '<h1>' + data.inv_year + data.inv_make + data.inv_model + '</h1>'
-  html += '<img src="' + data.inv_thumbnail + '" alt="Cover of' + data.inv_make + data.inv_model + '">'
-  html += '<span>$' + new Intl.NumberFormat('en-US').format(data.inv_price) + '</span>'
-  html += '<p><strong>Description:</strong>' + data.inv_description + '</p>'
-  html += '<p><strong>Color:</strong>' + data.inv_color + '</p>'
-  html += '<p><strong>Miles:</strong>' + data.inv_miles + '</p>'
-
+  html = '<div id="the-details">'
+  html += '<img src="' + data.inv_image + '" alt="Cover of' + data.inv_make + data.inv_model + '">'
+  html += '<div class="otherColumn">'
+  html += '<h2><strong>' + data.inv_make + " " + data.inv_model + " Details" + '</h2>'
+  html += '<p><strong>Price: </strong><span>$' + new Intl.NumberFormat('en-US').format(data.inv_price) + '</span></p>'
+  html += '<p><strong>Description: </strong>' + data.inv_description + '</p>'
+  html += '<p><strong>Color: </strong>' + data.inv_color + '</p>'
+  html += '<p><strong>Miles: </strong>' + data.inv_miles + '</p>'
+  html += '</div>'
+  html += '</div>'
   return html;
 }
 
