@@ -77,23 +77,34 @@ body {
    }
 
    form{
-      display: block;
+      display:grid;
       border: #ffffff;   
       margin: 1rem;
       background-color: rgb(43, 105, 185);
       box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
       justify-content: center;
    }
-
-   label, input{
+   form a, p{
+      margin: 1rem;
+      color: white;
+   }
+   label{
       display: flex;
       color: white;
-      margin: 1rem;
+      padding:1rem;      
+   }
+   input{
+       display: flex;
+       margin: 1rem;
       padding: 5px;
    }
    button{
+      display: flex;
+      justify-content: center;
       margin: 1rem;
       border-radius: 5px;
+      width: 90px;
+      height: auto;
    }
 
 @media only screen and (min-width: 768px) {
