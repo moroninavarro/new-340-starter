@@ -80,11 +80,15 @@ body {
       display:grid;
       border: #ffffff;   
       margin: 1rem;
-      background-color: rgb(43, 105, 185);
+      background-color: rgba(29, 110, 216, 0.925);
       box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
       justify-content: center;
    }
-   form a, p{
+   .simetric{
+      display: grid;
+      align-items: center;
+   }
+   .myForm a{
       margin: 1rem;
       color: white;
    }
@@ -103,8 +107,8 @@ body {
       justify-content: center;
       margin: 1rem;
       border-radius: 5px;
-      width: 90px;
-      height: auto;
+      
+      
    }
 
 @media only screen and (min-width: 768px) {

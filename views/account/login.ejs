@@ -2,18 +2,21 @@
 <h1><%= title %></h1>
 
 <form action="">
-    <label>Email:</label>
-        <input type="text" name="Email" id="email">
+    <div class="simetric"> 
+        <label>Email:</label>
+            <input type="text" name="Email" id="email">
+    
+    
+         <label>Password:</label>
+            <input type="text" name="Password" id="password">
+    
+        <button>LOGIN</button>
+    </div>
+    
+        <p class="myForm">
+            No account? <a href="Sign up">Sign up</a>
+        </p>
 
-
-     <label>Password:</label>
-        <input type="text" name="Password" id="password">
-
-    <button>LOGIN</button>
-
-    <p>
-        No account? <a href="Sign up">Sign up</a>
-    </p>
 </form>
 <% } else {
     res.redirect('/')
