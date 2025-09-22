@@ -76,6 +76,25 @@ body {
       border-radius: 10px;
    }
 
+   form{
+      display: block;
+      border: #ffffff;   
+      margin: 1rem;
+      background-color: rgb(43, 105, 185);
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+      justify-content: center;
+   }
+
+   label, input{
+      display: flex;
+      color: white;
+      margin: 1rem;
+      padding: 5px;
+   }
+   button{
+      margin: 1rem;
+      border-radius: 5px;
+   }
 
 @media only screen and (min-width: 768px) {
 
