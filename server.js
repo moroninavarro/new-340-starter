@@ -3,8 +3,10 @@
  * application. It is used to control the project.
  *******************************************/
 /* ***********************
- * Require Statements
- *************************/
+* Require Statements
+*************************/
+const session = require("express-session")
+const pool = require('./database/')
 const express = require("express")
 const expressLayouts = require("express-ejs-layouts")
 const env = require("dotenv").config()
