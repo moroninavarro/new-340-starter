@@ -15,7 +15,11 @@
 
 }
 
- 
+ .notice{
+   color: red;
+   font-style: italic;
+   
+ }
 /* index.ejs */
 
 #hero {
