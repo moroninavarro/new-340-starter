@@ -56,11 +56,13 @@ app.use("/inv", inventoryRoute)
 //Account router
 app.use("/account", require("./routes/accountRoute"))
 // File Not Found Route - must be last route in list
+//link broken in footer
+app.get("/broken", (req, res, next) => {
+  next({status:'Server Error', message: 'Oh no! There was a crash. Maybe try a different route?'})
+})
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
 })
-
-//link broken in footer
 
 /* ***********************
 * Express Error Handler
