@@ -95,9 +95,10 @@ body {
       padding:1rem;      
    }
    input{
-       display: flex;
-       margin: 1rem;
+      display: flex;
+      margin: 1rem;
       padding: 5px;
+      margin-top: -10px;
    }
    button{
       display: flex;
