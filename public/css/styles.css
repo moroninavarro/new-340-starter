@@ -109,9 +109,23 @@ body {
       
    }
 
+   .container{
+      display: block;
+      justify-content: center;
+      color: white;
+      font-size: 15px;
+      margin: 1rem;
+      
+   }
+   input:required:invalid, input:focus:invalid {
+   background: rgb(231, 171, 171);
+}
+ input:required:valid {
+   background: rgb(255, 255, 255);
+ }
 
    .aviso{
-      color: red;
+      color: rgb(221, 96, 96);
       font-style: oblique;
    }
 @media only screen and (min-width: 768px) {
