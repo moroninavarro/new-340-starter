@@ -109,6 +109,11 @@ body {
       
    }
 
+
+   .aviso{
+      color: red;
+      font-style: oblique;
+   }
 @media only screen and (min-width: 768px) {
 
    /* body */
