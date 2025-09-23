@@ -1,0 +1,25 @@
+<% if (title) { %>
+<h1><%= title %></h1>
+
+<form action="">
+
+        <label>First name:</label>
+            <input type="text" name="account_firstname" id="firstName" required>
+    
+        <label>Last name:</label>
+            <input type="text" name="account_lastname" id="lastName" required>
+
+        <label>Email Address:</label>
+            <input type="text" name="account_email" id="emailAddress" required>
+
+         <label>Password:</label>
+            <input type="text" name="Password" id="password" required>
+        
+        
+        <button>REGISTER</button>
+    
+    
+</form>
+<% } else {
+    res.redirect('/account')
+} %>
