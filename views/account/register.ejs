@@ -1,4 +1,4 @@
-<% if (title) { %>
+
 <h1><%= title %></h1>
 <div class="aviso"> <%- messages() %> 
 <% if (errors) { %>
@@ -18,13 +18,13 @@
 <form action="/account/register" method="post">
 
         <label>First name:</label>
-            <input type="text" name="account_firstname" id="firstName" required>
+            <input type="text" name="account_firstname" id="accountFirstname" required value="<%= locals.account_firstname %>">
     
         <label>Last name:</label>
-            <input type="text" name="account_lastname" id="lastName" required>
+            <input type="text" name="account_lastname" id="accountLastName" required value="<%= locals.account_lastname %>">
 
         <label>Email Address:</label>
-            <input type="email" name="account_email" id="emailAddress" required>
+            <input type="email" name="account_email" id="accountEmail" required value="<%= locals.account_email %>">
 
             
          <label for="accountPassword">Password:</label>
@@ -36,7 +36,3 @@
     
     
 </form>
-<% } else {
-    res.redirect('/account')
-    
-} %>
