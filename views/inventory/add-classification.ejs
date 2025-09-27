@@ -2,17 +2,10 @@
 <div class="aviso"> <%- messages() %> 
 </div>
 
-<form id="addClassification" action="/views/inventory/add-classification.ejs" method="post">
+<form id="addClassification" action="/add-classification" method="post">
     
-        <label>Email:</label>
+        <label>Classification Name</label>
+        <label>NAME MUST BE ALPHABETIC CHARACTERS ONLY </label>
             <input type="text" name="classification_name" id="classificationName" required value="<%= locals.classification_name %>">
-    
-    
-         
-            
-    
-        <button>Add Classification</button>
-    
-        
-
+        <button class="addClassificationbutton">Add Classification</button>
 </form>

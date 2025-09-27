@@ -10,10 +10,10 @@ router.get("/detail/:inventoryId", invController.buildByinventoryId);
 //example of route for my site-name/inv/
 router.get("/management", invController.buildBymanagement);
 //example task 2
-router.post(
-  "/add-classification",
-  (req, res) => {
-    res.status(200).send('add-classification')
-  }
-)
+router.get("/add-classification", invController.buildByaddClassification);
+//example task 2
+// router.post(
+//   "/add-classification",
+  
+// )
 module.exports = router;

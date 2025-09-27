@@ -44,4 +44,13 @@ invCont.buildBymanagement = async function (req, res, next) {
 
 }
 
+// Example of route for add-classification
+invCont.buildByaddClassification = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  res.render("./inventory/add-classification", {
+    title:"Add Classification",
+    nav,
+  })
+
+}
   module.exports = invCont
