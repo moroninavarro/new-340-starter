@@ -1,0 +1,18 @@
+<h1><%= title %></h1>
+<div class="aviso"> <%- messages() %> 
+</div>
+
+<form id="addClassification" action="/views/inventory/add-classification.ejs" method="post">
+    
+        <label>Email:</label>
+            <input type="text" name="classification_name" id="classificationName" required value="<%= locals.classification_name %>">
+    
+    
+         
+            
+    
+        <button>Add Classification</button>
+    
+        
+
+</form>

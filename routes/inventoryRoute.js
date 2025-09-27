@@ -9,4 +9,11 @@ router.get("/type/:classificationId", invController.buildByClassificationId);
 router.get("/detail/:inventoryId", invController.buildByinventoryId);
 //example of route for my site-name/inv/
 router.get("/management", invController.buildBymanagement);
+//example task 2
+router.post(
+  "/add-classification",
+  (req, res) => {
+    res.status(200).send('add-classification')
+  }
+)
 module.exports = router;
