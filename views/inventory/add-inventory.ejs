@@ -12,7 +12,9 @@
 <form id="addInventory" action="/inventory/management" method="post">
     
         <label>Classification</label>
-            <input type="r" name="classification_name" id="classificationName" required value="<%= locals.classification_name %>">
+            <select placeholder="Choose a category" name="classification_name" class="selectAddInventory" id="classificationName" required value="<%= locals.classification_name %>">
+                <option value=""></option>
+            </select>
     
         <label>Make:</label>
             <input type="text" name="inv_make" id="inv_make" required value="<%= locals.inv_make %>">
