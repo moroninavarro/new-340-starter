@@ -1,11 +1,18 @@
 <h1><%= title %></h1>
 <div class="aviso"> <%- messages() %> 
+<% if (errors) { %>
+<ul class="notice">
+<% errors.array().forEach(error => { %>
+<li><%= error.msg %></li>
+<%  }) %>
+</ul>
+<% } %>
 </div>
 
-<form id="addClassification" action="/add-classification" method="post">
+<form id="addClassification" action="/inventory/management" method="post">
     
         <label>Classification Name</label>
         <label>NAME MUST BE ALPHABETIC CHARACTERS ONLY </label>
-            <input type="text" name="classification_name" id="classificationName" required value="<%= locals.classification_name %>">
-        <button class="addClassificationbutton">Add Classification</button>
+            <input type="text" name="classification_name" id="classificationName" required value="<%= locals.classification_name %>" pattern="^[A-Za-z0-9]+$" required>
+        <button type="submit" class="addClassificationbutton">Add Classification</button>
 </form>
