@@ -13,9 +13,8 @@ router.get("/management", invController.buildBymanagement);
 router.post("/add-classification", utilities.handleErrors(invController.buildByaddClassification));
 //example task 2
 router.get("/add-classification", invController.buildByaddClassification);
-//example task 2
-// router.post(
-//   "/add-classification",
-  
-// )
+
+
+//example task 3
+router.get("/add-inventory", invController.buildByaddInventory);
 module.exports = router;

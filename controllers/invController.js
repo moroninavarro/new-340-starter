@@ -58,4 +58,16 @@ invCont.buildByaddClassification = async function (req, res, next) {
     
   }
 
+
+// Example of route for add-inventory
+invCont.buildByaddInventory = async function (req, res, next) {
+    let nav = await utilities.getNav()
+    res.render("./inventory/add-inventory", {
+      
+      title:"Add Vehicle",
+      nav,
+      errors: null,
+    })
+    
+  }
   module.exports = invCont
