@@ -17,6 +17,7 @@ const inventoryRoute = require("./routes/inventoryRoute")
 const utilities = require("./utilities/")
 const account = require("./routes/accountRoute")
 const bodyParser = require("body-parser")
+
 /* ***********************
  * View Engine and Templates
  *************************/

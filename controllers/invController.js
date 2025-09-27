@@ -19,7 +19,7 @@ invCont.buildByClassificationId = async function (req, res, next) {
   })
 }
 /* ***************************
- *  Build inventory by inv_id view
+ *  Build inventory view
  * ************************** */
 invCont.buildByinventoryId = async function (req, res, next) {
   const inv_id = req.params.inventoryId
@@ -34,4 +34,14 @@ invCont.buildByinventoryId = async function (req, res, next) {
   })
 
 }
+// Example of route for my site-name/inv/
+invCont.buildBymanagement = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  res.render("./inventory/management", {
+    title:"Vehicle Management",
+    nav,
+  })
+
+}
+
   module.exports = invCont
