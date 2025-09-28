@@ -9,10 +9,10 @@
 <% } %>
 </div>
 
-<form id="addClassification" action="/inventory/management" method="post">
+<form id="addClassification" action="/add-classification" method="post">
     
         <label>Classification Name</label>
         <label>NAME MUST BE ALPHABETIC CHARACTERS ONLY </label>
-            <input type="text" name="classification_name" id="classificationName" required value="<%= locals.classification_name %>" pattern="^[A-Za-z0-9]+$" required>
+            <input type="text" name="classification_name" id="classificationName" required value="<%= locals.classification_name %>" pattern="^[A-Za-z0-9]+$">
         <button type="submit" class="addClassificationbutton">Add Classification</button>
 </form>
