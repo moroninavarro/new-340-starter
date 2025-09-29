@@ -118,4 +118,16 @@ async function accountLogin(req, res) {
     throw new Error('Access Forbidden')
   }
 }
-module.exports = { buildLogin, buildRegister, registerAccount, accountLogin}
+
+
+/* ****************************************
+*  Deliver loginview page
+* *************************************** */
+async function buildLoginview(req, res, next) {
+  let nav = await utilities.getNav()
+  res.render("account/loginview", {
+    title: "You're logged in",
+    nav,
+  })
+}
+module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildLoginview}
