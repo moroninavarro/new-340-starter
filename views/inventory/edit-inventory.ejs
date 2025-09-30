@@ -11,10 +11,8 @@
 
 <form id="addInventory" action="/inv/update" method="post">
     
-        <label>Classification</label>
-            <select placeholder="Choose a category" name="classification_name" class="selectAddInventory" id="classificationName" required value="<%= locals.classification_name %>">
-                <option value=""></option>
-            </select>
+        <label>Classification:</label>
+            <%- classificationSelect %>
         
         <label>Make:</label>
             <input type="text" placeholder="Min of 3 characters" name="inv_make" id="inv_make" required value="<%= locals.inv_make %>">

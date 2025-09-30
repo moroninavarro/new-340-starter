@@ -55,14 +55,15 @@ invCont.buildByaddClassification = async function (req, res, next) {
     const newCategory = await invModel.addClassifications(userInput);
   
     res.redirect('/inventory/management');
+    let nav = await utilities.getNav()
+     res.render("./inventory/add-classification", {
+       
+       title:"Add Classification",
+       nav,
+       errors: null,
+       newCategory,});
    } catch (error) {  
-   let nav = await utilities.getNav()
-    res.render("./inventory/add-classification", {
-      
-      title:"Add Classification",
-      nav,
-      errors: null,
-    });
+     
     } 
   }
 //
@@ -80,11 +81,13 @@ invCont.buildByaddClassification2 = async function (req, res, next) {
 // Example of route for add-inventory
 invCont.buildByaddInventory = async function (req, res, next) {
     let nav = await utilities.getNav()
+    const classificationSelect = await utilities.buildClassificationList()
     res.render("./inventory/add-inventory", {
       
       title:"Add Vehicle",
       nav,
       errors: null,
+      classificationSelect,
     })
     
   }
@@ -114,7 +117,7 @@ invCont.editInventoryId = async function (req, res, next) {
     const itemName = `${itemData.inv_make} ${itemData.inv_model}`
     res.render("./inventory/edit-inventory", {
       
-      title:"Edit" + itemName,
+      title:"Edit " + itemName,
       nav,
       classificationSelect: classificationSelect,
       errors: null,
