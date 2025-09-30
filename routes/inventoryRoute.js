@@ -23,6 +23,8 @@ router.get("/add-inventory", invController.buildByaddInventory);
 
 //week 5
 router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
+//Update Inventory Information (Step 1)
+router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryId));
 
 module.exports = router;
 
