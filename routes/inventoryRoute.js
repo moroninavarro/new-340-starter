@@ -18,7 +18,11 @@ router.post("/add-classification",
   validate.checkClassificationData,
   utilities.handleErrors (invController.buildByaddClassification));
 
-
 //example task 3
 router.get("/add-inventory", invController.buildByaddInventory);
+
+//week 5
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
+
 module.exports = router;
+
