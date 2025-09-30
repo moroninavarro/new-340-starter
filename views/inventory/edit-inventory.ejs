@@ -21,7 +21,7 @@
             <input type="text" placeholder="Min of 3 characters" name="inv_model" id="inv_model" required value="<%= locals.inv_model %>">
     
         <label>Description</label>
-            <textarea class="textareaspace" type="" name="inv_description" id="inv_description" required value="<%= locals.inv_description %>"></textarea>
+            <textarea class="textareaspace" type="text" name="inv_description" id="inv_description" required><%= locals.inv_description %></textarea>
     
         <label>Image Path</label>
             <input type="text" name="inv_image" id="inv_image" required value="<%= locals.inv_image %>">
@@ -44,6 +44,8 @@
     
         <button type="submit" class="addVehicle">Update Vehicle</button>
     
-        
+        <input type="hidden" name="inv_id"
+        <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+        <% } %>>
 
 </form>

@@ -150,7 +150,8 @@ body {
 }
 
 .textareaspace{
-   padding: 20px;
+   padding: 10px;
+   height: 120px;
    
 }
 #classificationList{
