@@ -29,9 +29,9 @@ router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryId
 
 //Update Inventory Information (Step 2)
 router.post("/update/", 
-  valid.newInventoryRules(),
-  valid.checkUpdateData,  
+  // valid.newInventoryRules(), 
+  // valid.checkUpdateData, 
   utilities.handleErrors(invController.updateInventory));
-  
+
 module.exports = router;
 
