@@ -57,6 +57,29 @@ async function addClassifications(title){
   return result.rows[0];
 }
 
+/* ***************************
+ *  Update Inventory Data
+ * ************************** */
+async function addInventory(vehicleData){
+  const sql = `INSERT INTO inventory
+(classification_id, inv_make, inv_model, inv_description, inv_image, inv_thumbnail, inv_price, inv_year, inv_miles, inv_color)
+VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) RETURNING *;`;
+const values = [
+vehicleData.classification_id,
+vehicleData.inv_make,
+vehicleData.inv_model,
+vehicleData.inv_description,
+vehicleData.inv_image,
+vehicleData.inv_thumbnail,
+vehicleData.inv_price,
+vehicleData.inv_year,
+vehicleData.inv_miles,
+vehicleData.inv_color,
+  ];
+const result = await pool.query(sql, values);
+}
+
+
 
 
 
@@ -98,4 +121,4 @@ async function updateInventory(
   }
 }
 
-module.exports = {getClassifications, getInventoryByClassificationId, getinvid, getinventoryByinvId, addClassifications, updateInventory};
+module.exports = {getClassifications, getInventoryByClassificationId, getinvid, getinventoryByinvId, addClassifications, updateInventory, addInventory};

@@ -80,18 +80,55 @@ invCont.buildByaddClassification2 = async function (req, res, next) {
   }
 
 // Example of route for add-inventory
-invCont.buildByaddInventory = async function (req, res, next) {
+invCont.buildByaddInventory2 = async function (req, res, next) {
+  const inv_make = req.body.inv_make.trim();
+  const inv_model = req.body.inv_model.trim();
+  try {
+    await invModel.addInventory({
+      classification_id: req.body.classification_id,
+      inv_make: inv_make,
+      inv_model: inv_model,
+      inv_description: req.body.inv_description.trim(),
+      inv_image: req.body.inv_image.trim(),
+      inv_thumbnail: req.body.inv_thumbnail.trim(),
+      inv_price: req.body.inv_price.trim(),
+      inv_year: req.body.inv_year.trim(),
+      inv_miles: req.body.inv_miles.trim(),
+      inv_color: req.body.inv_color.trim()
+    });
+    req.flash("notice", `The ${inv_make} ${inv_model} was successfully added.`)
+    res.redirect("/inv/management"); 
+
+  }  catch (error){
+    console.error(error);
     let nav = await utilities.getNav()
-    const classificationSelect = await utilities.buildClassificationList()
-    res.render("./inventory/add-inventory", {
-      
-      title:"Add Vehicle",
-      nav,
-      errors: null,
-      classificationSelect,
-    })
+      const classificationSelect = await utilities.buildClassificationList()
+      req.flash("notice", `There was an error, please fill the form again.`)
+      res.render("./inventory/add-inventory", {
+        
+        title:"Add Vehicle",
+        nav,
+        errors: null,
+        classificationSelect,
+      })
+
+  }
     
   }
+
+// Example of route for add-inventory
+invCont.buildByaddInventory = async function (req, res, next) {
+    let nav = await utilities.getNav()
+      const classificationSelect = await utilities.buildClassificationList()
+      res.render("./inventory/add-inventory", {
+        title:"Add Vehicle",
+        nav,
+        errors: null,
+        classificationSelect,
+      })
+
+  }
+    
 
 
 /* ***************************

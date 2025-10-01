@@ -21,6 +21,8 @@ router.post("/add-classification",
 
 //example task 3
 router.get("/add-inventory", invController.buildByaddInventory);
+//task 3
+router.post("/add-inventory", utilities.handleErrors (invController.buildByaddInventory2));
 
 //week 5
 router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON));
