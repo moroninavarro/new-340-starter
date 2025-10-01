@@ -1,0 +1,36 @@
+<h1><%= title %></h1>
+<div class="aviso"> <%- messages() %> 
+<% if (errors) { %>
+<ul class="notice">
+<% errors.array().forEach(error => { %>
+<li><%= error.msg %></li>
+<%  }) %>
+</ul>
+<% } %>
+</div>
+
+<p>Confirm Deletion - The deletion is permanent</p>
+<form action="/inv/delete" method="post">
+    
+        <label>Make</label>
+            <input type="text" readonly name="inv_make" id="inv_make" required value="<%= locals.inv_make %>">
+    
+        <label>Model:</label>
+            <input type="text" placeholder="Min of 3 characters" name="inv_model" id="inv_model" required value="<%= locals.inv_model %>">
+
+
+        <label>Price</label>
+            <input type="text" placeholder="decimal or integer" name="inv_price" id="inv_price" required value="<%= locals.inv_price %>">
+    
+        <label>Years</label>
+            <input type="text" readonly name="inv_year" id="inv_year" required value="<%= locals.inv_year %>">
+        
+            <input type="hidden" name="inv_id"
+            <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+            <% } %>>
+    
+        <button type="submit" class="addVehicle">Update Vehicle</button>
+    
+
+        <script src="/js/inv-update.js"></script>
+</form>
