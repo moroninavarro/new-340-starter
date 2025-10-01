@@ -41,7 +41,7 @@ invCont.buildBymanagement = async function (req, res, next) {
   res.render("./inventory/management", {
     title:"Vehicle Management",
     nav,
-    error: null,
+    errors: null,
     classificationSelect,
   })
 
@@ -49,24 +49,25 @@ invCont.buildBymanagement = async function (req, res, next) {
 
 // Example of route for add-classification
 invCont.buildByaddClassification = async function (req, res, next) {
-  try{ 
+    try{ 
     const userInput = req.body.classification_name.trim();
     
-    const newCategory = await invModel.addClassifications(userInput);
-  
-    res.redirect('/inventory/management');
+    await invModel.addClassifications(userInput);
+    req.flash("notice", `The ${userInput} was successfully added.`)
+    res.redirect("/inv/management"); 
+  } catch (error){ 
+    console.error(error);
     let nav = await utilities.getNav()
-     res.render("./inventory/add-classification", {
-       
-       title:"Add Classification",
-       nav,
-       errors: null,
-       newCategory,});
-   } catch (error) {  
-     
-    } 
+    res.render("./inventory/add-classification", {
+      title:"Add Classification",
+      nav,
+      errors: null,
+
+    })
   }
-//
+  }
+  
+// This is just for show us the view add classification
 invCont.buildByaddClassification2 = async function (req, res, next) {
 
    let nav = await utilities.getNav()
