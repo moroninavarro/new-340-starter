@@ -25,4 +25,14 @@ router.post(
   regValidate.checkLoginData,
   utilities.handleErrors(accountController.accountLogin)
 )
+
+//Assignment 5
+router.post("/updateinfo", 
+  // valid.newInventoryRules(), 
+  // valid.checkUpdateData, 
+  utilities.handleErrors(accountController.updateInfo));
+
+//Update view
+router.get("/changeinfo", utilities.handleErrors(accountController.updateview));
+
 module.exports = router;

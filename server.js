@@ -80,6 +80,18 @@ app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
 })
 
+//Logout Unit 5
+app.get('/logout', (req, res)=>{
+  res.clearCookie('userData');
+  res.send('user logout succesfully');
+});
+//Logout Unit 5
+app.use((req, res, next)=>{
+  res.locals.user = req.user
+  res.locals.authenticated = !req.user.anonymous
+  next()
+})
+
 /* ***********************
 * Express Error Handler
 * Place after all other middleware

@@ -42,4 +42,47 @@ async function getAccountByEmail (account_email) {
 }
 
 
-module.exports = {registerAccount, checkExistingEmail, getAccountByEmail}
+
+/* ***************************
+ *  Update account data
+ * ************************** */
+async function updateAccount(
+  account_id,
+  account_firstname,
+  account_lastname,
+  account_email,
+) {
+  try {
+    const sql =
+      `UPDATE account 
+      SET account_firstname = $1,
+      account_lastname = $2, 
+      account_email = $3 
+      WHERE account_id = $4 RETURNING *`
+    const data = await pool.query(sql, [
+    account_firstname,
+    account_lastname,
+    account_email,
+    account_id,
+    ])
+    return data.rows[0]
+  } catch (error) {
+    console.error("UpdateAccount error: ", error)
+    return null
+  }
+}
+
+//My new function Unit 5
+async function getAccountByaccountId(account_id) {
+  try{
+    const thedata = await pool.query(
+       `SELECT * FROM public.account
+      WHERE account_id = $1`,
+      [account_id]
+    )
+    return thedata.rows[0]
+  } catch (error) {
+    console.error("getAccountId error " + error)
+  }
+}
+module.exports = {registerAccount, checkExistingEmail, getAccountByEmail, updateAccount, getAccountByaccountId}

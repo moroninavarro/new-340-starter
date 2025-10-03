@@ -1,0 +1,36 @@
+
+<h1><%= title %></h1>
+<div class="aviso"> <%- messages() %>
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+</div>
+
+<h2>Account Update</h2>
+<form id="updatemyInfo" action="/account/updateinfo" method="post">
+    
+        <label>First name:</label>
+            <input type="text" name="account_firstname" id="accountFirstname" required value="<%= locals.account_firstname %>">
+    
+        <label>Last name:</label>
+            <input type="text" name="account_lastname" id="accountLastName" required value="<%= locals.account_lastname %>">
+
+         <label>Email Address:</label>
+            <input type="email" name="account_email" id="accountEmail" required value="<%= locals.account_email %>">
+
+    
+        <button>UPDATE</button>
+
+</form>
+
+<form action="/account/updateinfo"> 
+        <label for="accountPassword">Password:</label>
+            <input type="password" name="account_password" title="Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character" id="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" required>
+        
+            <button>CHANGE PASSWORD</button>
+        
+</form>

@@ -131,4 +131,56 @@ async function buildLoginview(req, res, next) {
     errors: null,
   })
 }
-module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildLoginview}
+
+
+
+// Example of route for add-inventory
+async function updateInfo (req, res, next) {
+    let nav = await utilities.getNav()
+    const {
+      
+      account_firstname,
+      account_lastname,
+      account_email,
+  } = req.body
+  const account_id = res.locals.accountData.account_id || req.session.accountData.account_id
+
+
+
+  try{
+    const updateResult = await accountModel.updateAccount(
+      account_id,
+      account_firstname,
+      account_lastname,
+      account_email
+    )
+  
+    if (updateResult) {
+    req.flash("notice", `The information was successfully updated.`)
+    res.redirect("account/loginview")
+  } else {
+    req.flash("notice", "Sorry, the update failed.")
+    res.redirect("account/loginview")
+  }
+} catch (error){
+  next(error)
+}
+}
+
+
+
+//this will build the "update" view
+async function updateview (req, res, next) {
+    let nav = await utilities.getNav()
+    res.render("account/updateview", {
+      title:"Edit Account",
+      nav,
+      errors: null,
+    })
+  }
+
+
+module.exports = { buildLogin, 
+  buildRegister, 
+  registerAccount, accountLogin, 
+  buildLoginview, updateInfo, updateview}
