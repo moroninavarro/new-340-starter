@@ -59,7 +59,23 @@ app.set("layout", "./layouts/layout") // not at views root
 
 
 
-
+//Logout Unit 5
+app.use((req, res, next)=>{
+  res.locals.user = req.session.user || null;
+  res.locals.authenticated = !!req.session.userId;
+  next();
+});
+//Logout Unit 5
+app.get('/logout', (req, res)=>{
+  req.session.destroy(err =>{
+    if (err) {
+      console.log(err);
+      return res.redirect('/');
+    }
+  res.clearCookie('userData');
+  res.redirect('/');
+});
+});
 /* ***********************
  * Routes
  *************************/
@@ -80,17 +96,7 @@ app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
 })
 
-//Logout Unit 5
-app.get('/logout', (req, res)=>{
-  res.clearCookie('userData');
-  res.send('user logout succesfully');
-});
-//Logout Unit 5
-app.use((req, res, next)=>{
-  res.locals.user = req.user
-  res.locals.authenticated = !req.user.anonymous
-  next()
-})
+
 
 /* ***********************
 * Express Error Handler

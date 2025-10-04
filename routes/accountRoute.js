@@ -38,7 +38,8 @@ router.post("/updatepassword", utilities.handleErrors(accountController.updatePa
 //Update view
 router.get("/changeinfo", utilities.handleErrors(accountController.updateview));
 
-
+//logout
+router.get("/logout", utilities.handleErrors(accountController.buildLogout));
 
 
 module.exports = router;

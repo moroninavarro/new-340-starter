@@ -129,6 +129,7 @@ async function buildLoginview(req, res, next) {
     title: "Account Management",
     nav,
     errors: null,
+    account_type: req.session.account_type,
   })
 }
 
@@ -173,6 +174,7 @@ async function updateInfo (req, res, next) {
 async function updatePassword (req, res, next) {
     let nav = await utilities.getNav()
     const {
+      
       account_password,
   } = req.body
   const account_id = res.locals.accountData.account_id || req.session.accountData.account_id
@@ -209,7 +211,21 @@ async function updateview (req, res, next) {
   }
 
 
+/* ****************************************
+*  Deliver Logout view
+* *************************************** */
+async function buildLogout(req, res, next) {
+  
+  req.session.destroy(err =>{
+    if (err) {
+      console.log(err);
+    }
+  res.clearCookie('userData');
+  res.redirect("/");
+  })
+}
+
 module.exports = { buildLogin, 
   buildRegister, 
   registerAccount, accountLogin, 
-  buildLoginview, updateInfo, updateview, updatePassword}
+  buildLoginview, updateInfo, updateview, updatePassword, buildLogout}
