@@ -22,15 +22,28 @@
          <label>Email Address:</label>
             <input type="email" name="account_email" id="accountEmail" required value="<%= locals.account_email %>">
 
+            <input type="hidden" name="account_id"
+            <% if(locals.account_id) { %> value="<%= locals.account_id %>"
+            <% } %>>
     
         <button>UPDATE</button>
 
 </form>
 
-<form action="/account/updateinfo"> 
+
+
+
+
+<h2>Update Password</h2>
+<p>Password must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</p>
+<p>*note your original password will be changed</p>
+
+<form action="/account/updatepassword" method="post" id="updatemyPassword"> 
         <label for="accountPassword">Password:</label>
             <input type="password" name="account_password" title="Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character" id="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" required>
-        
+            <input type="hidden" name="account_id"
+            <% if(locals.account_id) { %> value="<%= locals.account_id %>"
+            <% } %>>
             <button>CHANGE PASSWORD</button>
         
 </form>

@@ -72,6 +72,32 @@ async function updateAccount(
   }
 }
 
+/* ***************************
+ *  Update account Password
+ * ************************** */
+const bcrypt = require("bcryptjs")
+async function updatePassword(
+  account_id,
+  account_password,
+) {
+  try {
+    const hashedPassword = await bcrypt.hash(account_password, 10)
+    const sql =
+      `UPDATE account 
+      SET account_password = $1
+      WHERE account_id = $2 RETURNING *`
+    const data = await pool.query(sql, [
+   hashedPassword,
+    account_id])
+    return data.rows[0]
+  } catch (error) {
+    console.error("UpdatePassword error: ", error)
+    return null
+  }
+}
+
+
+
 //My new function Unit 5
 async function getAccountByaccountId(account_id) {
   try{
@@ -85,4 +111,4 @@ async function getAccountByaccountId(account_id) {
     console.error("getAccountId error " + error)
   }
 }
-module.exports = {registerAccount, checkExistingEmail, getAccountByEmail, updateAccount, getAccountByaccountId}
+module.exports = {registerAccount, checkExistingEmail, getAccountByEmail, updateAccount, getAccountByaccountId, updatePassword }

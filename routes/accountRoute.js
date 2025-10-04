@@ -32,7 +32,13 @@ router.post("/updateinfo",
   // valid.checkUpdateData, 
   utilities.handleErrors(accountController.updateInfo));
 
+//Assignment Unit 5 this one is for the password update
+router.post("/updatepassword", utilities.handleErrors(accountController.updatePassword));
+
 //Update view
 router.get("/changeinfo", utilities.handleErrors(accountController.updateview));
+
+
+
 
 module.exports = router;

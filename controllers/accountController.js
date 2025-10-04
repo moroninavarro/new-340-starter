@@ -134,7 +134,7 @@ async function buildLoginview(req, res, next) {
 
 
 
-// Example of route for add-inventory
+// Example of route for updateinfo
 async function updateInfo (req, res, next) {
     let nav = await utilities.getNav()
     const {
@@ -157,16 +157,45 @@ async function updateInfo (req, res, next) {
   
     if (updateResult) {
     req.flash("notice", `The information was successfully updated.`)
-    res.redirect("account/loginview")
+    res.redirect("/account/loginview")
   } else {
     req.flash("notice", "Sorry, the update failed.")
-    res.redirect("account/loginview")
+    res.redirect("/account/loginview")
   }
 } catch (error){
   next(error)
 }
 }
 
+
+
+// Example of route for updatePassword
+async function updatePassword (req, res, next) {
+    let nav = await utilities.getNav()
+    const {
+      account_password,
+  } = req.body
+  const account_id = res.locals.accountData.account_id || req.session.accountData.account_id
+
+
+
+  try{
+    const updateResult = await accountModel.updatePassword(
+      account_id,
+      account_password,
+    )
+  
+    if (updateResult) {
+    req.flash("notice", `The information was successfully updated.`)
+    res.redirect("/account/loginview")
+  } else {
+    req.flash("notice", "Sorry, the update failed.")
+    res.redirect("/account/loginview")
+  }
+} catch (error){
+  next(error)
+}
+}
 
 
 //this will build the "update" view
@@ -183,4 +212,4 @@ async function updateview (req, res, next) {
 module.exports = { buildLogin, 
   buildRegister, 
   registerAccount, accountLogin, 
-  buildLoginview, updateInfo, updateview}
+  buildLoginview, updateInfo, updateview, updatePassword}
