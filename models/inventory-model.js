@@ -138,8 +138,25 @@ async function deleteInventoryItem(inv_id) {
 }
 
 
+/* ***************************
+ *  Project: Additional Enhancement
+ * ************************** */
+async function getCheaperPrice(){
+  try{
+    const thequery = await pool.query(
+       `SELECT inv_make, inv_model, inv_year, inv_description, inv_image, inv_price, inv_miles, inv_color 
+        FROM inventory 
+        ORDER BY inv_price ASC LIMIT 1`
+    
+    )
+    return thequery.rows[0]
+  } catch (error) {
+    console.error("getquery error " + error)
+  }
+}
+
 
 module.exports = {getClassifications, 
 getInventoryByClassificationId, 
 getinvid, getinventoryByinvId, 
-addClassifications, updateInventory, addInventory, deleteInventoryItem};
+addClassifications, updateInventory, addInventory, deleteInventoryItem, getCheaperPrice};

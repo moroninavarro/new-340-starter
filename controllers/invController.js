@@ -293,4 +293,22 @@ invCont.deleteItem = async function (req, res, next) {
 
   }
 
+
+/* *************************************
+* Project: Additional Enhancement
+**************************************** */
+invCont.buildTheOffer = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  const itemData = await invModel.getCheaperPrice()
+  const itemName = `${itemData.inv_make} ${itemData.inv_model}`
+    res.render("./inventory/the-offer", {
+      title:"The Cheaper Car" + " - " + `${itemName}` ,
+      nav,
+      errors: null,
+      itemData,
+    });
+    
+  }
+
+
   module.exports = invCont

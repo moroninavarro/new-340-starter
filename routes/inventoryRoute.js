@@ -51,5 +51,8 @@ router.post("/delete",
   utilities.handleErrors(invController.deleteItem)
 )
 
+//Project: Additional Enhancement
+router.get("/the-offer", utilities.handleErrors(invController.buildTheOffer));
+
 module.exports = router;
 
